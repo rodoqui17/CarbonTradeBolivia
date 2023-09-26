@@ -23,7 +23,7 @@ const Home: NextPage = () => {
             <div className="max-w-3xl">
               <p className="text-center text-lg mt-8">¡Bienvenidos al Futuro de la Sostenibilidad en Bolivia!</p>
               <p className="text-center text-lg">
-              Estamos emocionados de presentarles el primer mercado tokenizado de bonos de carbono en Bolivia. Este es un hito histórico que marca el comienzo de una nueva era en la lucha contra el cambio climático y la promoción de prácticas comerciales sostenibles en nuestro país.
+              Estamos muy emocionados de presentarles el primer mercado tokenizado de bonos de carbono en Bolivia. Este es un hito histórico que marca el comienzo de una nueva era en la lucha contra el cambio climático y la promoción de prácticas comerciales sostenibles en nuestro país.
               </p>
               <p className="text-center text-lg">
               Nuestra plataforma innovadora está diseñada para facilitar la inversión en proyectos de reducción de emisiones de carbono en Bolivia. Con la tokenización de bonos de carbono, los inversores locales e internacionales tienen la oportunidad de apoyar proyectos ecoamigables y a la vez obtener beneficios económicos. Esto crea un ecosistema de inversión que fomenta la sostenibilidad y contribuye al desarrollo sostenible de Bolivia.
