@@ -1,121 +1,121 @@
 const nftsMetadata = [
   {
-    description: "It's actually a bison?",
+    description: "Forestación en la Chiquitanía",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/buffalo.jpg",
-    name: "Buffalo",
+    image: "https://roseville.hu/assets/media/news/1000/CO2neutrallogo2021.jpg",
+    name: "Municipo de Palca",
     attributes: [
       {
         trait_type: "BackgroundColor",
-        value: "green",
+        value: "5Ton CO2eq/año",
       },
       {
         trait_type: "Eyes",
-        value: "googly",
+        value: "5 años",
       },
       {
         trait_type: "Stamina",
-        value: 42,
+        value: "0.2 ETH",
       },
     ],
   },
   {
-    description: "What is it so worried about?",
+    description: "Conservación de bosques",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/zebra.jpg",
-    name: "Zebra",
+    image: "https://roseville.hu/assets/media/news/1000/CO2neutrallogo2021.jpg",
+    name: "Chiquitania",
     attributes: [
       {
         trait_type: "BackgroundColor",
-        value: "blue",
+        value: "3 Ton CO2eq/año",
       },
       {
         trait_type: "Eyes",
-        value: "googly",
+        value: "3 años",
       },
       {
         trait_type: "Stamina",
-        value: 38,
+        value: "0.5 ETH",
       },
     ],
   },
   {
-    description: "What a horn!",
+    description: "Proyecto Planta Eolica",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/rhino.jpg",
-    name: "Rhino",
+    image: "https://roseville.hu/assets/media/news/1000/CO2neutrallogo2021.jpg",
+    name: "La Paz",
     attributes: [
       {
         trait_type: "BackgroundColor",
-        value: "pink",
+        value: "50 Ton CO2eq/año",
       },
       {
         trait_type: "Eyes",
-        value: "googly",
+        value: "4 años",
       },
       {
         trait_type: "Stamina",
-        value: 22,
+        value: "0.1 ETH",
       },
     ],
   },
   {
-    description: "Is that an underbyte?",
+    description: "Planta de Biogas",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/fish.jpg",
-    name: "Fish",
+    image: "https://roseville.hu/assets/media/news/1000/CO2neutrallogo2021.jpg",
+    name: "La Paz",
     attributes: [
       {
         trait_type: "BackgroundColor",
-        value: "blue",
+        value: "10 Ton CO2eq/año",
       },
       {
         trait_type: "Eyes",
-        value: "googly",
+        value: "2 años",
       },
       {
         trait_type: "Stamina",
-        value: 15,
+        value: "0.6 ETH",
       },
     ],
   },
   {
-    description: "So delicate.",
+    description: "Ecoturismo",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/flamingo.jpg",
-    name: "Flamingo",
+    image: "https://roseville.hu/assets/media/news/1000/CO2neutrallogo2021.jpg",
+    name: "Uyuni",
     attributes: [
       {
         trait_type: "BackgroundColor",
-        value: "black",
+        value: "2 Ton CO2eq/año",
       },
       {
         trait_type: "Eyes",
-        value: "googly",
+        value: "2 años",
       },
       {
         trait_type: "Stamina",
-        value: 6,
+        value: "0.7 ETH",
       },
     ],
   },
   {
-    description: "Raaaar!",
+    description: "Planta de Reciclaje",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/godzilla.jpg",
-    name: "Godzilla",
+    image: "https://roseville.hu/assets/media/news/1000/CO2neutrallogo2021.jpg",
+    name: "Municio de Palca",
     attributes: [
       {
         trait_type: "BackgroundColor",
-        value: "orange",
+        value: "50 Ton CO2eq/año",
       },
       {
         trait_type: "Eyes",
-        value: "googly",
+        value: "3 años",
       },
       {
         trait_type: "Stamina",
-        value: 99,
+        value: "0.8 ETH",
       },
     ],
   },

@@ -14,8 +14,8 @@ type MetaHeaderProps = {
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/` : "/";
 
 export const MetaHeader = ({
-  title = "Challenge #0 | SpeedRunEthereum",
-  description = "Challenge #0: 🎟 Simple NFT Example of SpeedRunEthereum. Built with 🏗 Scaffold-ETH 2",
+  title = "CarbonTrade | Marketplace",
+  description = "Plataforma descentralizada para el comercialización de bonos de carbono",
   image = "thumbnail.png",
   twitterCard = "summary_large_image",
   children,

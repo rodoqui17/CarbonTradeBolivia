@@ -44,40 +44,46 @@ export const Header = () => {
 
   const navLinks = (
     <>
+     <li>
+        <NavLink href="/myNFTs">
+          <PhotoIcon className="h-4 w-4" />
+          MarketPlace
+        </NavLink>
+      </li>
       <li>
         <NavLink href="/myNFTs">
           <PhotoIcon className="h-4 w-4" />
-          My NFTs
+          Mis Certificados
         </NavLink>
       </li>
       <li>
         <NavLink href="/transfers">
           <ArrowPathIcon className="h-4 w-4" />
-          Transfers
+          Operaciones
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink href="/ipfsUpload">
           <ArrowUpTrayIcon className="h-4 w-4" />
           IPFS Upload
         </NavLink>
-      </li>
-      <li>
+      </li> */}
+      {/* <li>
         <NavLink href="/ipfsDownload">
           <ArrowDownTrayIcon className="h-4 w-4" />
           IPFS Download
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink href="/debug">
           <BugAntIcon className="h-4 w-4" />
-          Debug Contracts
+          Cargar Certificado
         </NavLink>
       </li>
       <li>
         <NavLink href="/blockexplorer">
           <MagnifyingGlassIcon className="h-4 w-4" />
-          Block Explorer
+          Explorador
         </NavLink>
       </li>
     </>
@@ -113,8 +119,8 @@ export const Header = () => {
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">SRE Challenges</span>
-            <span className="text-xs">#0: Simple NFT</span>
+            <span className="font-bold leading-tight">CarbonTrade</span>
+            <span className="text-xs">Marketplace</span>
           </div>
         </Link>
         <ul className="hidden xl:flex xl:flex-nowrap menu menu-horizontal px-1 gap-2">{navLinks}</ul>
