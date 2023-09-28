@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import { MyHoldings } from "~~/components/simpleNFT";
+import { AllNFTs } from "~~/components/simpleNFT";
 import { useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { ipfsClient } from "~~/utils/simpleNFT";
@@ -57,16 +57,7 @@ const MyNFTs: NextPage = () => {
           </h1>
         </div>
       </div>
-        <div className="flex justify-center">
-        {!isConnected || isConnecting ? (
-          <RainbowKitCustomConnectButton />
-        ) : (
-          <button className="btn btn-secondary" onClick={handleMintItem}>
-            Crear Certificado
-          </button>
-        )}
-      </div>
-         <MyHoldings />
+         <AllNFTs />
     </>
   );
 };

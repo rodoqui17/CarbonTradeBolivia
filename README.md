@@ -1,13 +1,4 @@
-Challenge #0: 🎟 Simple NFT Example
-readme-0
 
-🎫 Create a simple NFT to learn basics of 🏗 Scaffold-ETH 2. You'll use 👷‍♀️ HardHat to compile and deploy smart contracts. Then, you'll use a template React app full of important Ethereum components and hooks. Finally, you'll deploy an NFT to a public network to share with friends! 🚀
-
-🌟 The final deliverable is an app that lets users purchase and transfer NFTs. Deploy your contracts to a testnet, then build and upload your app to a public web server. Submit the url on SpeedRunEthereum.com!
-
-💬 Meet other builders working on this challenge and get help in the Challenge 0 Telegram!
-
-Checkpoint 0: 📦 Environment 📚
 Before you begin, you need to install the following tools:
 
 Node (v18 LTS)
@@ -15,20 +6,20 @@ Yarn (v1 or v2+)
 Git
 Then download the challenge to your computer and install dependencies by running:
 
-git clone https://github.com/scaffold-eth/se-2-challenges.git challenge-0-simple-nft
-cd challenge-0-simple-nft
-git checkout challenge-0-simple-nft
+git clone https://github.com/rodoqui17/CarbonTrade.git
+cd carbontrade
+git checkout carbontrade
 yarn install
 in the same terminal, start your local network (a blockchain emulator in your computer):
 
 yarn chain
 in a second terminal window, 🛰 deploy your contract (locally):
 
-cd challenge-0-simple-nft
+cd carbontrade
 yarn deploy
 in a third terminal window, start your 📱 frontend:
 
-cd challenge-0-simple-nft
+cd carbontrade
 yarn start
 📱 Open http://localhost:3000 to see the app.
 
