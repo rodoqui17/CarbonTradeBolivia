@@ -57,6 +57,15 @@ const MyNFTs: NextPage = () => {
           </h1>
         </div>
       </div>
+        <div className="flex justify-center">
+        {!isConnected || isConnecting ? (
+          <RainbowKitCustomConnectButton />
+        ) : (
+          <button className="btn btn-secondary" onClick={handleMintItem}>
+            Crear Certificado
+          </button>
+        )}
+      </div>
          <MyHoldings />
     </>
   );
