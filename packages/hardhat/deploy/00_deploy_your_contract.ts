@@ -24,6 +24,7 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   await deploy("YourCollectible", {
     from: deployer,
     // Contract constructor arguments
+    // args: ["carbonTrade","CBT"],
     args: [],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by

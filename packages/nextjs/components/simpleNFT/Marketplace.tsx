@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "../Spinner";
-import { NFTCard } from "./NFTCard";
+import { MarketplaceNFT } from "./MarketplaceNFT";
+import { useAccount } from "wagmi";
 import { useScaffoldContract, useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { NFTMetaData, getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
+import { getAccount } from "wagmi/dist/actions";
 
 export interface Collectible extends Partial<NFTMetaData> {
   id: number;
@@ -11,56 +13,64 @@ export interface Collectible extends Partial<NFTMetaData> {
   owner: string;
 }
 
-export const AllNFTs = () => {
-  const [allCollectibles, setAllCollectibles] = useState<Collectible[]>([]);
+export const Marketplace = () => {
+  const { address: connectedAddress } = useAccount();
+  const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([]);
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false);
 
   const { data: yourCollectibleContract } = useScaffoldContract({
     contractName: "YourCollectible",
   });
 
+  const { data: myTotalBalance } = useScaffoldContractRead({
+    contractName: "YourCollectible",
+    functionName: "balanceOf",
+    args: [connectedAddress],
+    watch: true,
+    cacheOnBlock: true,
+  });
+
   useEffect(() => {
-    const fetchAllCollectibles = async (): Promise<void> => {
-      if (yourCollectibleContract === undefined)
+    const updateMyCollectibles = async (): Promise<void> => {
+      if (myTotalBalance === undefined || yourCollectibleContract === undefined || connectedAddress === undefined)
         return;
 
       setAllCollectiblesLoading(true);
-      const collectibles: Collectible[] = [];
-
-      // Puedes modificar este rango según tus necesidades o utilizar una función de lectura para obtener el número total de tokens disponibles.
-      const totalTokensToFetch = 100;
-
-      for (let tokenIndex = 0; tokenIndex < totalTokensToFetch; tokenIndex++) {
+      const collectibleUpdate: Collectible[] = [];
+      const totalBalance = parseInt(myTotalBalance.toString());
+      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
-          const tokenId = await yourCollectibleContract.read.tokenByIndex([BigInt(tokenIndex.toString())]);
-
+          const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
+            connectedAddress,
+            BigInt(tokenIndex.toString()),
+          ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
 
           const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
 
           const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
 
-          // También puedes obtener la dirección del propietario del NFT si lo necesitas.
-          const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
-
-          collectibles.push({
+          collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
-            owner: owner,
+            owner: connectedAddress,
             ...nftMetadata,
           });
+
+          console.log(collectibleUpdate)
         } catch (e) {
-          notification.error("Error fetching collectibles");
+          notification.error("Error fetching all collectibles");
+          setAllCollectiblesLoading(false);
           console.log(e);
         }
       }
-      setAllCollectibles(collectibles);
+      setMyAllCollectibles(collectibleUpdate);
       setAllCollectiblesLoading(false);
     };
 
-    fetchAllCollectibles();
+    updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [connectedAddress, myTotalBalance]);
 
   if (allCollectiblesLoading)
     return (
@@ -71,14 +81,14 @@ export const AllNFTs = () => {
 
   return (
     <>
-      {allCollectibles.length === 0 ? (
+      {myAllCollectibles.length === 0 ? (
         <div className="flex justify-center items-center mt-10">
-          <div className="text-2xl text-primary-content">No hay NFTs disponibles</div>
+          <div className="text-2xl text-primary-content">No tienes certificados</div>
         </div>
       ) : (
         <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
-          {allCollectibles.map(item => (
-            <NFTCard nft={item} key={item.id} />
+          {myAllCollectibles.map(item => (
+            <MarketplaceNFT nft={item} key={item.id} />
           ))}
         </div>
       )}

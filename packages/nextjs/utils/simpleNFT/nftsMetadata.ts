@@ -1,7 +1,7 @@
 const nftsMetadata = [
   {
     description: "Forestación en la Chiquitanía",
-    external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
+    external_url: "https://certifika.io/certification/certificado-de-arborizacion-de-plantas-nativas/", // <-- this can link to a page for the specific file too
     image: "https://eos.com/wp-content/uploads/2023/07/coastal-afforestation.jpg",
     name: "Municipo de Palca",
     attributes: [
@@ -21,7 +21,7 @@ const nftsMetadata = [
   },
   {
     description: "Conservación de bosques",
-    external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
+    external_url: "https://certifika.io/certification/certificado-de-arborizacion-de-plantas-nativas/", // <-- this can link to a page for the specific file too
     image: "https://imgs.mongabay.com/wp-content/uploads/sites/25/2020/08/24190237/CordonGrande-21.jpg",
     name: "Chiquitania",
     attributes: [
@@ -41,7 +41,7 @@ const nftsMetadata = [
   },
   {
     description: "Proyecto Planta Eolica",
-    external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
+    external_url: "https://certifika.io/certification/certificado-de-arborizacion-de-plantas-nativas/", // <-- this can link to a page for the specific file too
     image: "https://i0.wp.com/www.endesyc.bo/wp-content/uploads/2021/08/parque-Eolico-Qollpana.jpg",
     name: "La Paz",
     attributes: [
@@ -61,7 +61,7 @@ const nftsMetadata = [
   },
   {
     description: "Planta de Biogas",
-    external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
+    external_url: "https://certifika.io/certification/certificado-de-arborizacion-de-plantas-nativas/", // <-- this can link to a page for the specific file too
     image: "https://www.argentina.gob.ar/sites/default/files/biodigestor-nuevo.jpeg",
     name: "La Paz",
     attributes: [
@@ -81,7 +81,7 @@ const nftsMetadata = [
   },
   {
     description: "Ecoturismo",
-    external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
+    external_url: "https://certifika.io/certification/certificado-de-arborizacion-de-plantas-nativas/", // <-- this can link to a page for the specific file too
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJk-IyC-wgLVXbO1TzXB-flyO-D-iqV-SIw&usqp=CAU",
     name: "Uyuni",
     attributes: [
@@ -101,7 +101,7 @@ const nftsMetadata = [
   },
   {
     description: "Planta de Reciclaje",
-    external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
+    external_url: "https://certifika.io/certification/certificado-de-arborizacion-de-plantas-nativas/", // <-- this can link to a page for the specific file too
     image: "https://econojournal.com.ar/cntnt/uploads/2022/08/IMG-20220824-WA0000.jpg",
     name: "Municio de Palca",
     attributes: [
