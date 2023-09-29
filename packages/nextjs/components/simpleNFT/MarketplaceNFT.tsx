@@ -10,7 +10,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
   const { writeAsync: transferNFT } = useScaffoldContractWrite({
     contractName: "YourCollectible",
     functionName: "transferFrom",
-    args: [nft.owner, "0x0000000000000000000000000000000000000000", BigInt(nft.id.toString())],
+    args: [nft.owner, "R3COLECTA.ETH", BigInt(nft.id.toString())],
   });
 
   return (
@@ -50,7 +50,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
 
         <div className="card-actions justify-end">
           <button className="btn btn-secondary btn-md px-8 tracking-wide" onClick={() => transferNFT()}>
-            Compensar (Burn)
+            Compensar
           </button>
         </div>
 
