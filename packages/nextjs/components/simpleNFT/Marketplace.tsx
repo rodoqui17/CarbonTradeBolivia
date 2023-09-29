@@ -87,7 +87,7 @@ export const Marketplace = () => {
     <>
       {myAllCollectibles.length === 0 ? (
         <div className="flex justify-center items-center mt-10">
-          <div className="text-2xl text-primary-content">No tienes certificados</div>
+          <div className="text-2xl text-primary-content">Debes crear un certificado para acceder a este espacio</div>
         </div>
       ) : (
         <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
