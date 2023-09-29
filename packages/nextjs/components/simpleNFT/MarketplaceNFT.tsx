@@ -50,7 +50,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
 
         <div className="card-actions justify-end">
           <button className="btn btn-secondary btn-md px-8 tracking-wide" onClick={() => transferNFT()}>
-            Compensar
+            Compensar (Burn)
           </button>
         </div>
 
