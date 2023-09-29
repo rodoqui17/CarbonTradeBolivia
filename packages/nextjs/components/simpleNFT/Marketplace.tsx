@@ -38,6 +38,8 @@ export const Marketplace = () => {
       setAllCollectiblesLoading(true);
       const collectibleUpdate: Collectible[] = [];
       const totalBalance = parseInt(myTotalBalance.toString());
+    //  const totalTokens = await yourCollectibleContract.read.totalSupply();
+    console.log(yourCollectibleContract);
       for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
@@ -50,14 +52,16 @@ export const Marketplace = () => {
 
           const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
 
+          const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
+
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
-            owner: connectedAddress,
+            owner,
             ...nftMetadata,
           });
 
-          console.log(collectibleUpdate)
+          console.log("todos los NFTs")
         } catch (e) {
           notification.error("Error fetching all collectibles");
           setAllCollectiblesLoading(false);

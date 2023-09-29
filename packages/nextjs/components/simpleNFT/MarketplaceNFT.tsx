@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Address, AddressInput } from "../scaffold-eth";
-import { Collectible } from "./MyHoldings";
+import { Collectible } from "./Marketplace";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 import { useAccount } from "wagmi";
 
@@ -44,7 +44,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
         <div className="flex flex-col my-2 space-y-1">
           <a href={nft.external_url}>
             <span className="text-lg font-semibold mb-1"> </span>
-            enlace del proyecto
+            Documento de verificación
           </a>
         </div>
 

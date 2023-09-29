@@ -57,6 +57,7 @@ const MyNFTs: NextPage = () => {
           </h1>
         </div>
       </div>
+      
          <Marketplace />
     </>
   );

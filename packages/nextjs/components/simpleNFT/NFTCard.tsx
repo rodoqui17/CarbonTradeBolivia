@@ -43,7 +43,7 @@ export const NFTCard = ({ nft }: { nft: Collectible }) => {
         <div className="flex flex-col my-2 space-y-1">
           <a href={nft.external_url}>
             <span className="text-lg font-semibold mb-1"> </span>
-            fuente de verificación
+            Documento de verificación
           </a>
         </div>
         <div className="flex flex-col my-2 space-y-1">
