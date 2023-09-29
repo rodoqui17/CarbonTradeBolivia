@@ -10,7 +10,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
   const { writeAsync: transferNFT } = useScaffoldContractWrite({
     contractName: "YourCollectible",
     functionName: "transferFrom",
-    args: [nft.owner, connectedAddress, BigInt(nft.id.toString())],
+    args: [nft.owner, "X0", BigInt(nft.id.toString())],
   });
 
   return (
