@@ -25,16 +25,16 @@ const Transfers: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center mb-8">
-            <span className="block text-4xl font-bold">All Transfers Events</span>
+            <span className="block text-4xl font-bold">Trazabilida de las operaciones</span>
           </h1>
         </div>
         <div className="overflow-x-auto shadow-lg">
           <table className="table table-zebra w-full">
             <thead>
               <tr>
-                <th className="bg-primary">Token Id</th>
-                <th className="bg-primary">From</th>
-                <th className="bg-primary">To</th>
+                <th className="bg-primary">Id del Bono</th>
+                <th className="bg-primary">Origen</th>
+                <th className="bg-primary">Destino</th>
               </tr>
             </thead>
             <tbody>

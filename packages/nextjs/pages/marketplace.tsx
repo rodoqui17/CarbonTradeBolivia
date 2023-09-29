@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import { AllNFTs } from "~~/components/simpleNFT";
+import { Marketplace } from "~~/components/simpleNFT/Marketplace";
 import { useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { ipfsClient } from "~~/utils/simpleNFT";
@@ -53,11 +53,12 @@ const MyNFTs: NextPage = () => {
       <div className="flex items-center flex-col pt-10">
         <div className="px-5">
           <h1 className="text-center mb-8">
-            <span className="block text-4xl font-bold">Mis Certificados</span>
+            <span className="block text-4xl font-bold">MARKETPLACE</span>
           </h1>
         </div>
       </div>
-         <AllNFTs />
+      
+         <Marketplace />
     </>
   );
 };
