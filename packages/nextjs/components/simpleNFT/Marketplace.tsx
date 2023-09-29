@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "../Spinner";
-import { NFTCard } from "./NFTCard";
+import { MarketplaceNFT } from "./MarketplaceNFT";
 import { useAccount } from "wagmi";
 import { useScaffoldContract, useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { NFTMetaData, getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
+import { getAccount } from "wagmi/dist/actions";
 
 export interface Collectible extends Partial<NFTMetaData> {
   id: number;
@@ -12,10 +13,9 @@ export interface Collectible extends Partial<NFTMetaData> {
   owner: string;
 }
 
-export const MyHoldings = () => {
+export const Marketplace = () => {
   const { address: connectedAddress } = useAccount();
   const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([]);
-  
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false);
 
   const { data: yourCollectibleContract } = useScaffoldContract({
@@ -38,25 +38,30 @@ export const MyHoldings = () => {
       setAllCollectiblesLoading(true);
       const collectibleUpdate: Collectible[] = [];
       const totalBalance = parseInt(myTotalBalance.toString());
+    //  const totalTokens = await yourCollectibleContract.read.totalSupply();
+    console.log(yourCollectibleContract);
       for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
             connectedAddress,
             BigInt(tokenIndex.toString()),
           ]);
-
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
 
           const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
 
           const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
 
+          const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
+
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
-            owner: connectedAddress,
+            owner,
             ...nftMetadata,
           });
+
+          console.log("todos los NFTs")
         } catch (e) {
           notification.error("Error fetching all collectibles");
           setAllCollectiblesLoading(false);
@@ -87,7 +92,7 @@ export const MyHoldings = () => {
       ) : (
         <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
           {myAllCollectibles.map(item => (
-            <NFTCard nft={item} key={item.id} />
+            <MarketplaceNFT nft={item} key={item.id} />
           ))}
         </div>
       )}
