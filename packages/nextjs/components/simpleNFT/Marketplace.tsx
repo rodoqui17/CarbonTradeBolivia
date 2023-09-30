@@ -66,6 +66,13 @@ export const Marketplace = () => {
           notification.error("Error al cargar los certificados");
           setAllCollectiblesLoading(false);
           console.log(e);
+          console.log(   collectibleUpdate.push({
+            id: parseInt(tokenId.toString()),
+            uri: tokenURI,
+            owner:owner,
+            ...nftMetadata,
+          });
+)
         }
       }
       setMyAllCollectibles(collectibleUpdate);
