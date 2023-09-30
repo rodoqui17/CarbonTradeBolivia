@@ -74,7 +74,7 @@ export const Marketplace = () => {
 
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [connectedAddress, myTotalBalance]);
+  }, ["0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf", myTotalBalance]);
 
   if (allCollectiblesLoading)
     return (
