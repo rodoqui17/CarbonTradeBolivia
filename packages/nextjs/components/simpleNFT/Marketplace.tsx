@@ -38,8 +38,9 @@ export const Marketplace = () => {
       setAllCollectiblesLoading(true);
       const collectibleUpdate: Collectible[] = [];
       const totalBalance = parseInt(myTotalBalance.toString());
+      const allAccounts = await web3.eth.getAccounts();
     //  const totalTokens = await yourCollectibleContract.read.totalSupply();
-    console.log(yourCollectibleContract);
+    console.log(allAccounts);
       for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
