@@ -65,7 +65,7 @@ export const Marketplace = () => {
 
           console.log("todos los NFTs")
         } catch (e) {
-          notification.error("Error fetching all collectibles");
+          notification.error(e);
           setAllCollectiblesLoading(false);
           console.log(e);
         }
@@ -76,7 +76,7 @@ export const Marketplace = () => {
 
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [connectedAddress, myTotalBalance]);
+  }, []);
   //}, [connectedAddress, myTotalBalance]);
 
   if (allCollectiblesLoading)
