@@ -63,7 +63,7 @@ export const Marketplace = () => {
             ...nftMetadata,
           });
 
-          console.log("todos los NFTs")
+          console.log(collectibleUpdate)
         } catch (e) {
           notification.error(e);
           setAllCollectiblesLoading(false);
