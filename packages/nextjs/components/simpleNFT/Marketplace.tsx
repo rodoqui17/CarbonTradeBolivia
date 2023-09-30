@@ -44,25 +44,19 @@ export const Marketplace = () => {
     console.log(totalTokens);
       for (let tokenIndex = 0; tokenIndex < totalTokens; tokenIndex++) {
         try {
-          const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-           // connectedAddress,
-            BigInt(tokenIndex.toString()),
-          ]);
+          const tokenId = await yourCollectibleContract.read.tokenByIndex(tokenIndex);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
-
           const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
-
           const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
 
+          // Retrieve the owner of the token
           const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
-           
+
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
-            owner,
+            owner: owner,
             ...nftMetadata,
-          });
-
           console.log(collectibleUpdate)
         } catch (e) {
           notification.error(e);
