@@ -45,7 +45,7 @@ export const Marketplace = () => {
       for (let tokenIndex = 0; tokenIndex < totalTokens; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-            connectedAddress,
+           // connectedAddress,
             BigInt(tokenIndex.toString()),
           ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
