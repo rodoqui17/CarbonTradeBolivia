@@ -25,7 +25,7 @@ export const Marketplace = () => {
   const { data: myTotalBalance } = useScaffoldContractRead({
     contractName: "YourCollectible",
     functionName: "balanceOf",
-    args: ["0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf"],
+    args: [connectedAddress],
     watch: true,
     cacheOnBlock: true,
   });
@@ -43,7 +43,7 @@ export const Marketplace = () => {
       for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-            "0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf",
+            connectedAddress,
             BigInt(tokenIndex.toString()),
           ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
@@ -74,7 +74,7 @@ export const Marketplace = () => {
 
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, ["0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf", myTotalBalance]);
+  }, [connectedAddress, myTotalBalance]);
 
   if (allCollectiblesLoading)
     return (
