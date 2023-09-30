@@ -25,7 +25,7 @@ export const Marketplace = () => {
   const { data: myTotalBalance } = useScaffoldContractRead({
     contractName: "YourCollectible",
     functionName: "balanceOf",
-    args: [connectedAddress],
+    args: ["0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf"],
     watch: true,
     cacheOnBlock: true,
   });
@@ -43,7 +43,7 @@ export const Marketplace = () => {
       for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-            connectedAddress,
+            "0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf",
             BigInt(tokenIndex.toString()),
           ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
