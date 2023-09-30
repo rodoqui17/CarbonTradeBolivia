@@ -38,12 +38,12 @@ export const Marketplace = () => {
       setAllCollectiblesLoading(true);
       const collectibleUpdate: Collectible[] = [];
       const totalBalance = parseInt(myTotalBalance.toString());
-    //  const totalTokens = await yourCollectibleContract.read.totalSupply();
+      const totalTokens = await yourCollectibleContract.read.totalSupply();
     console.log(yourCollectibleContract);
-      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
+      for (let tokenIndex = 0; tokenIndex < totalTokens; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-            connectedAddress,
+          //  connectedAddress,
             BigInt(tokenIndex.toString()),
           ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
@@ -57,13 +57,13 @@ export const Marketplace = () => {
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
-            owner,
+            owner:owner,
             ...nftMetadata,
           });
 
           console.log("todos los NFTs")
         } catch (e) {
-          notification.error("Error fetching all collectibles");
+          notification.error("Error al cargar los certificados");
           setAllCollectiblesLoading(false);
           console.log(e);
         }
@@ -74,7 +74,7 @@ export const Marketplace = () => {
 
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [connectedAddress, myTotalBalance]);
+  }, []);
 
   if (allCollectiblesLoading)
     return (
@@ -87,7 +87,7 @@ export const Marketplace = () => {
     <>
       {myAllCollectibles.length === 0 ? (
         <div className="flex justify-center items-center mt-10">
-          <div className="text-2xl text-primary-content">Debes crear un certificado para acceder a este espacio</div>
+          <div className="text-2xl text-primary-content">No existen certificados cargados</div>
         </div>
       ) : (
         <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
