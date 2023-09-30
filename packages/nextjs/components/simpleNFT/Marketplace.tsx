@@ -40,10 +40,10 @@ export const Marketplace = () => {
       const totalBalance = parseInt(myTotalBalance.toString());
       const totalTokens = await yourCollectibleContract.read.totalSupply();
     console.log(yourCollectibleContract);
-      for (let tokenIndex = 0; tokenIndex < totalTokens; tokenIndex++) {
+      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-          //  connectedAddress,
+          connectedAddress,
             BigInt(tokenIndex.toString()),
           ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
@@ -74,7 +74,7 @@ export const Marketplace = () => {
 
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [connectedAddress,totalBalance]);
 
   if (allCollectiblesLoading)
     return (
