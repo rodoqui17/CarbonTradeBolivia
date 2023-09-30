@@ -32,34 +32,38 @@ export const Marketplace = () => {
 
   useEffect(() => {
     const updateMyCollectibles = async (): Promise<void> => {
-     // if (myTotalBalance === undefined || yourCollectibleContract === undefined || connectedAddress === undefined)
-       if (yourCollectibleContract === undefined) 
-         return;
+      if (myTotalBalance === undefined || yourCollectibleContract === undefined || connectedAddress === undefined)
+        return;
 
       setAllCollectiblesLoading(true);
       const collectibleUpdate: Collectible[] = [];
       const totalBalance = parseInt(myTotalBalance.toString());
-     
-    const totalTokens = await yourCollectibleContract.read.totalSupply();
-    console.log(totalTokens);
-      for (let tokenIndex = 0; tokenIndex < totalTokens; tokenIndex++) {
+    //  const totalTokens = await yourCollectibleContract.read.totalSupply();
+    console.log(yourCollectibleContract);
+      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
-          const tokenId = await yourCollectibleContract.read.tokenByIndex(tokenIndex);
+          const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
+            connectedAddress,
+            BigInt(tokenIndex.toString()),
+          ]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
+
           const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
+
           const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
 
-          // Retrieve the owner of the token
           const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
 
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
-            owner: owner,
+            owner,
             ...nftMetadata,
-          console.log(collectibleUpdate)
+          });
+
+          console.log("todos los NFTs")
         } catch (e) {
-          notification.error(e);
+          notification.error("Error fetching all collectibles");
           setAllCollectiblesLoading(false);
           console.log(e);
         }
@@ -70,8 +74,7 @@ export const Marketplace = () => {
 
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  //}, [connectedAddress, myTotalBalance]);
+  }, [connectedAddress, myTotalBalance]);
 
   if (allCollectiblesLoading)
     return (
