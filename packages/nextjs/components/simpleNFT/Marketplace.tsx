@@ -42,7 +42,7 @@ export const Marketplace = () => {
      
     const totalTokens = await yourCollectibleContract.read.totalSupply();
     console.log(totalTokens);
-      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
+      for (let tokenIndex = 0; tokenIndex < totalTokens; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
             connectedAddress,
@@ -55,7 +55,7 @@ export const Marketplace = () => {
           const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
 
           const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
-
+           
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),
             uri: tokenURI,
@@ -77,6 +77,7 @@ export const Marketplace = () => {
     updateMyCollectibles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [connectedAddress, myTotalBalance]);
+  //}, [connectedAddress, myTotalBalance]);
 
   if (allCollectiblesLoading)
     return (
