@@ -32,15 +32,16 @@ export const Marketplace = () => {
 
   useEffect(() => {
     const updateMyCollectibles = async (): Promise<void> => {
-      if (myTotalBalance === undefined || yourCollectibleContract === undefined || connectedAddress === undefined)
-        return;
+     // if (myTotalBalance === undefined || yourCollectibleContract === undefined || connectedAddress === undefined)
+       if (yourCollectibleContract === undefined) 
+         return;
 
       setAllCollectiblesLoading(true);
       const collectibleUpdate: Collectible[] = [];
       const totalBalance = parseInt(myTotalBalance.toString());
      
     const totalTokens = await yourCollectibleContract.read.totalSupply();
-    console.log("aqui");
+    console.log(totalTokens);
       for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
         try {
           const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
