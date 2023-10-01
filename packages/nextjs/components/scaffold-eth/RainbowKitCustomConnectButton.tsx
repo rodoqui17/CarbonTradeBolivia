@@ -41,7 +41,7 @@ export const RainbowKitCustomConnectButton = () => {
               if (!connected) {
                 return (
                   <button className="btn btn-secondary btn-sm" onClick={openConnectModal} type="button">
-                    Connect Wallet
+                    Conectar billetera
                   </button>
                 );
               }
@@ -50,7 +50,7 @@ export const RainbowKitCustomConnectButton = () => {
                 return (
                   <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-error btn-sm dropdown-toggle gap-1">
-                      <span>Wrong network</span>
+                      <span>Error de red</span>
                       <ChevronDownIcon className="h-6 w-4 ml-2 sm:ml-0" />
                     </label>
                     <ul
@@ -65,7 +65,7 @@ export const RainbowKitCustomConnectButton = () => {
                         >
                           <ArrowsRightLeftIcon className="h-6 w-4 ml-2 sm:ml-0" />
                           <span className="whitespace-nowrap">
-                            Switch to <span style={{ color: networkColor }}>{configuredNetwork.name}</span>
+                            Cambiar a <span style={{ color: networkColor }}>{configuredNetwork.name}</span>
                           </span>
                         </button>
                       </li>
@@ -75,7 +75,7 @@ export const RainbowKitCustomConnectButton = () => {
                           type="button"
                           onClick={() => disconnect()}
                         >
-                          <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Disconnect</span>
+                          <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Desconectado</span>
                         </button>
                       </li>
                     </ul>
@@ -128,7 +128,7 @@ export const RainbowKitCustomConnectButton = () => {
                                 className="text-xl font-normal h-6 w-4 cursor-pointer ml-2 sm:ml-0"
                                 aria-hidden="true"
                               />
-                              <span className=" whitespace-nowrap">Copy address</span>
+                              <span className=" whitespace-nowrap">Copiar dirección</span>
                             </div>
                           </CopyToClipboard>
                         )}
@@ -136,7 +136,7 @@ export const RainbowKitCustomConnectButton = () => {
                       <li>
                         <label htmlFor="qrcode-modal" className="btn-sm !rounded-xl flex gap-3 py-3">
                           <QrCodeIcon className="h-6 w-4 ml-2 sm:ml-0" />
-                          <span className="whitespace-nowrap">View QR Code</span>
+                          <span className="whitespace-nowrap">Ver código QR</span>
                         </label>
                       </li>
                       <li>
@@ -148,7 +148,7 @@ export const RainbowKitCustomConnectButton = () => {
                             rel="noopener noreferrer"
                             className="whitespace-nowrap"
                           >
-                            View on Block Explorer
+                            Ver en el explorador
                           </a>
                         </button>
                       </li>
@@ -158,7 +158,7 @@ export const RainbowKitCustomConnectButton = () => {
                           type="button"
                           onClick={() => disconnect()}
                         >
-                          <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Disconnect</span>
+                          <ArrowLeftOnRectangleIcon className="h-6 w-4 ml-2 sm:ml-0" /> <span>Desconectarse</span>
                         </button>
                       </li>
                     </ul>

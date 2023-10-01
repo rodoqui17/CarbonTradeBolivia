@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "../Spinner";
 import { MarketplaceNFT } from "./MarketplaceNFT";
-import { useAccount } from "wagmi";
-import { useScaffoldContract, useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { useScaffoldContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { NFTMetaData, getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
-import { getAccount } from "wagmi/dist/actions";
 
 export interface Collectible extends Partial<NFTMetaData> {
   id: number;
@@ -14,67 +12,46 @@ export interface Collectible extends Partial<NFTMetaData> {
 }
 
 export const Marketplace = () => {
-  const { address: connectedAddress } = useAccount();
-  const [myAllCollectibles, setMyAllCollectibles] = useState<Collectible[]>([]);
-  const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(false);
+  const [allCollectibles, setAllCollectibles] = useState<Collectible[]>([]);
+  const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(true);
 
-  const { data: yourCollectibleContract } = useScaffoldContract({
-    contractName: "YourCollectible",
-  });
-
-  const { data: myTotalBalance } = useScaffoldContractRead({
-    contractName: "YourCollectible",
-    functionName: "balanceOf",
-    args: [connectedAddress],
-    watch: true,
-    cacheOnBlock: true,
-  });
+  const { data: yourCollectibleContract } = useScaffoldContract({ contractName: "YourCollectible" });
 
   useEffect(() => {
-    const updateMyCollectibles = async (): Promise<void> => {
-      if (myTotalBalance === undefined || yourCollectibleContract === undefined || connectedAddress === undefined)
-        return;
+    const fetchAllCollectibles = async () => {
+      if (!yourCollectibleContract || !yourCollectibleContract.read) return;
 
-      setAllCollectiblesLoading(true);
-      const collectibleUpdate: Collectible[] = [];
-      const totalBalance = parseInt(myTotalBalance.toString());
-    //  const totalTokens = await yourCollectibleContract.read.totalSupply();
-    console.log(yourCollectibleContract);
-      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
-        try {
-          const tokenId = await yourCollectibleContract.read.tokenOfOwnerByIndex([
-            connectedAddress,
-            BigInt(tokenIndex.toString()),
-          ]);
+      try {
+        const totalTokens = await yourCollectibleContract.read.totalSupply();
+
+        const collectibleUpdate = [];
+        for (let i = 0; i < totalTokens; i++) {
+          const tokenId = await yourCollectibleContract.read.tokenByIndex([BigInt(i)]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
-
-          const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
-
-          const nftMetadata: NFTMetaData = await getNFTMetadataFromIPFS(ipfsHash);
-
           const owner = await yourCollectibleContract.read.ownerOf([tokenId]);
 
+          const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
+          const nftMetadata = await getNFTMetadataFromIPFS(ipfsHash);
+
           collectibleUpdate.push({
-            id: parseInt(tokenId.toString()),
+            id: Number(tokenId.toString()),
             uri: tokenURI,
             owner,
             ...nftMetadata,
           });
-
-          console.log("todos los NFTs")
-        } catch (e) {
-          notification.error("Error fetching all collectibles");
-          setAllCollectiblesLoading(false);
-          console.log(e);
         }
+
+        setAllCollectibles(collectibleUpdate);
+      } catch (error) {
+        notification.error("Error fetching all collectibles");
+        console.error(error);
+      } finally {
+        setAllCollectiblesLoading(false);
       }
-      setMyAllCollectibles(collectibleUpdate);
-      setAllCollectiblesLoading(false);
     };
 
-    updateMyCollectibles();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [connectedAddress, myTotalBalance]);
+    fetchAllCollectibles();
+  }, [yourCollectibleContract]);
 
   if (allCollectiblesLoading)
     return (
@@ -84,18 +61,10 @@ export const Marketplace = () => {
     );
 
   return (
-    <>
-      {myAllCollectibles.length === 0 ? (
-        <div className="flex justify-center items-center mt-10">
-          <div className="text-2xl text-primary-content">No tienes certificados</div>
-        </div>
-      ) : (
-        <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
-          {myAllCollectibles.map(item => (
-            <MarketplaceNFT nft={item} key={item.id} />
-          ))}
-        </div>
-      )}
-    </>
+    <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
+      {allCollectibles.map(item => (
+        <MarketplaceNFT nft={item} key={item.id} />
+      ))}
+    </div>
   );
 };

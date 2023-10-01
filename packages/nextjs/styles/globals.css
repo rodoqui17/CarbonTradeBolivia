@@ -32,3 +32,12 @@ p {
 .btn.btn-ghost {
   @apply shadow-none;
 }
+.rounded-custom {
+  border-radius: 4rem;
+}
+
+@media (max-width: 640px) {
+  .mobile-image-container {
+      height: 200px;
+  }
+}

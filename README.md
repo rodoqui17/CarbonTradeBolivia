@@ -6,8 +6,8 @@ Yarn (v1 or v2+)
 Git
 Then download the challenge to your computer and install dependencies by running:
 
-git clone https://github.com/rodoqui17/CarbonTrade.git
-cd carbontrade
+'git clone https://github.com/rodoqui17/CarbonTrade.git'
+´cd carbontrade´
 git checkout carbontrade
 yarn install
 in the same terminal, start your local network (a blockchain emulator in your computer):
