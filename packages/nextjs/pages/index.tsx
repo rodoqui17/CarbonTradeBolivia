@@ -13,7 +13,7 @@ const Home: NextPage = () => {
             <span className="block text-4xl font-bold">Marketplace</span>
           </h1> */}
           <div className="flex flex-col items-center justify-center">
-            <div className="max-w-6xl" >
+            <div className="max-w-6xl">
               <p className="text-center text-4xl mb-8 font-bold">
                 ¡Bienvenidos al Futuro de la Sostenibilidad en Bolivia!
               </p>
