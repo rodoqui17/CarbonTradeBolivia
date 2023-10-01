@@ -10,6 +10,7 @@ import {
   BugAntIcon,
   MagnifyingGlassIcon,
   PhotoIcon,
+  ShoppingCartIcon
 } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -46,7 +47,7 @@ export const Header = () => {
     <>
      <li>
         <NavLink href="/marketplace">
-          <PhotoIcon className="h-4 w-4" />
+          <ShoppingCartIcon className="h-4 w-4" />
           MarketPlace
         </NavLink>
       </li>
