@@ -34,7 +34,7 @@ export const Marketplace = () => {
           const nftMetadata = await getNFTMetadataFromIPFS(ipfsHash);
 
           collectibleUpdate.push({
-            id: tokenId,
+            id: Number(tokenId.toString()),
             uri: tokenURI,
             owner,
             ...nftMetadata,
@@ -53,7 +53,12 @@ export const Marketplace = () => {
     fetchAllCollectibles();
   }, [yourCollectibleContract]);
 
-  if (allCollectiblesLoading) return <Spinner width="75" height="75" />;
+  if (allCollectiblesLoading)
+    return (
+      <div className="flex justify-center items-center mt-10">
+        <Spinner width="75" height="75" />
+      </div>
+    );
 
   return (
     <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
