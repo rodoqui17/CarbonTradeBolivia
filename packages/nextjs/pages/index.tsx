@@ -20,8 +20,8 @@ const Home: NextPage = () => {
             </div>
             <Image
               src="/background.png"
-              width="1200"
-              height="600"
+              width="700"
+              height="400"
               alt="challenge banner"
               className="rounded-custom border-4 border-primary mobile-image-container"
             />

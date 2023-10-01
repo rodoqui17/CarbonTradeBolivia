@@ -37,7 +37,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
           <p className="my-0 text-lg">{nft.description}</p>
         </div>
         <div className="flex space-x-3 mt-1 items-center">
-          <span className="text-lg font-semibold">Propietario :  </span>
+          <span className="text-lg font-semibold">Propietario:</span>
           <Address address={nft.owner} /> ({nft.name})
          
         </div>
