@@ -511,7 +511,7 @@ const contracts = {
       name: "sepolia",
       contracts: {
         YourCollectible: {
-          address: "0xDc85ef8dAb4d5939a3899A962389C5d1D1C28fDf",
+          address: "0x316309D53D2325330d3353b9ea19aDFdb059d90F",
           abi: [
             {
               inputs: [],

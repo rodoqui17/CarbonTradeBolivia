@@ -6,7 +6,7 @@ import { useScaffoldContract, useScaffoldContractRead } from "~~/hooks/scaffold-
 import { notification } from "~~/utils/scaffold-eth";
 import { NFTMetaData, getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
 import { getAccount } from "wagmi/dist/actions";
-
+import nftsMetadata from "~~/utils/simpleNFT/nftsMetadata";
 export interface Collectible extends Partial<NFTMetaData> {
   id: number;
   uri: string;
@@ -82,7 +82,7 @@ export const Marketplace = () => {
         <Spinner width="75" height="75" />
       </div>
     );
-
+console.log(nftsMetadata);
   return (
     <>
       {myAllCollectibles.length === 0 ? (
