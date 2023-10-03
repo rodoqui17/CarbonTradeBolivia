@@ -14,7 +14,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
   });
 
   return (
-    <div className="card card-compact bg-base-100 shadow-lg sm:min-w-[300px] shadow-secondary">
+    <div className="card card-compact bg-base-100 shadow-lg w-[380px] shadow-secondary">
       <figure className="relative">
         {/* eslint-disable-next-line  */}
         <img src={nft.image} alt="NFT Image" className="h-60 min-w-full" />
@@ -37,7 +37,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
           <p className="my-0 text-lg">{nft.description}</p>
         </div>
         <div className="flex space-x-3 mt-1 items-center">
-          <span className="text-lg font-semibold">Propietario :  </span>
+          <span className="text-lg font-semibold">Propietario:</span>
           <Address address={nft.owner} /> ({nft.name})
          
         </div>
