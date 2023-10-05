@@ -4,12 +4,9 @@ import { MarketplaceNFT } from "./MarketplaceNFT";
 import { useScaffoldContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { NFTMetaData, getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
-<<<<<<< HEAD
 import { getAccount } from "wagmi/dist/actions";
 import nftsMetadata from "~~/utils/simpleNFT/nftsMetadata";
-=======
 
->>>>>>> 63fd855c5c39c7f3775f52d65a985b0460edc792
 export interface Collectible extends Partial<NFTMetaData> {
   id: number;
   uri: string;
