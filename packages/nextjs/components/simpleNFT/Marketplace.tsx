@@ -4,7 +4,7 @@ import { MarketplaceNFT } from "./MarketplaceNFT";
 import { useScaffoldContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 import { NFTMetaData, getNFTMetadataFromIPFS } from "~~/utils/simpleNFT";
-import { getAccount } from "wagmi/dist/actions";
+import { useAccount } from "wagmi";
 import nftsMetadata from "~~/utils/simpleNFT/nftsMetadata";
 
 export interface Collectible extends Partial<NFTMetaData> {
@@ -14,6 +14,7 @@ export interface Collectible extends Partial<NFTMetaData> {
 }
 
 export const Marketplace = () => {
+  const { address: connectedAddress } = useAccount();
   const [allCollectibles, setAllCollectibles] = useState<Collectible[]>([]);
   const [allCollectiblesLoading, setAllCollectiblesLoading] = useState(true);
 
@@ -21,12 +22,14 @@ export const Marketplace = () => {
 
   useEffect(() => {
     const fetchAllCollectibles = async () => {
+     
       if (!yourCollectibleContract || !yourCollectibleContract.read) return;
 
       try {
         const totalTokens = await yourCollectibleContract.read.totalSupply();
-
+ 
         const collectibleUpdate = [];
+     
         for (let i = 0; i < totalTokens; i++) {
           const tokenId = await yourCollectibleContract.read.tokenByIndex([BigInt(i)]);
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
@@ -53,7 +56,7 @@ export const Marketplace = () => {
     };
 
     fetchAllCollectibles();
-  }, [yourCollectibleContract]);
+  }, [connectedAddress,yourCollectibleContract]);
 
   if (allCollectiblesLoading)
     return (

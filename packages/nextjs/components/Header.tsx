@@ -75,12 +75,12 @@ export const Header = () => {
           IPFS Download
         </NavLink>
       </li> */}
-      {/* <li>
+      <li>
         <NavLink href="/debug">
           <BugAntIcon className="h-4 w-4" />
           Cargar Certificado
         </NavLink>
-      </li> */}
+      </li>
       <li>
         <NavLink href="/blockexplorer">
           <MagnifyingGlassIcon className="h-4 w-4" />
