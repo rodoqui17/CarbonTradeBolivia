@@ -23,7 +23,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
         </figcaption>
       </figure>
       <div className="card-body space-y-3">
-        <p className="text-xl p-0 m-0 font-semibold text-center">{nft.name}</p>
+        <p className="text-xl p-0 m-0 font-semibold text-center">{nft.name} # {nft.id}</p>
         <div className="flex items-center justify-center">
           <div className="flex flex-wrap space-x-2 mt-1">
             {nft.attributes?.map((attr, index) => (
