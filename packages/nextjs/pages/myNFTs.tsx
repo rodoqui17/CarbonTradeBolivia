@@ -64,7 +64,7 @@ const MyNFTs: NextPage = () => {
           <RainbowKitCustomConnectButton />
         ) : (
           <button className="btn btn-secondary" onClick={handleMintItem}>
-            Crear Certificado
+            Generar Ticket
           </button>
         )}
       </div>
