@@ -1,11 +1,11 @@
 const contracts = {
-  31337: [
+  137: [
     {
-      chainId: "31337",
-      name: "localhost",
+      chainId: "137",
+      name: "polygon",
       contracts: {
         YourCollectible: {
-          address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          address: "0x0EC054a9f23e660E9402f57D7AEbedbe20c740d6",
           abi: [
             {
               inputs: [],

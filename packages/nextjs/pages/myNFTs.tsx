@@ -7,7 +7,7 @@ import { useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaf
 import { notification } from "~~/utils/scaffold-eth";
 import { ipfsClient } from "~~/utils/simpleNFT";
 import nftsMetadata from "~~/utils/simpleNFT/nftsMetadata";
-
+import gophorametadata from "~~/utils/simpleNFT/gophorametadata";
 const MyNFTs: NextPage = () => {
   const { address: connectedAddress, isConnected, isConnecting } = useAccount();
 
@@ -29,7 +29,9 @@ const MyNFTs: NextPage = () => {
     if (tokenIdCounter === undefined) return;
 
     const tokenIdCounterNumber = parseInt(tokenIdCounter.toString());
-    const currentTokenMetaData = nftsMetadata[tokenIdCounterNumber % nftsMetadata.length];
+    // const currentTokenMetaData = nftsMetadata[tokenIdCounterNumber % nftsMetadata.length];
+    const currentTokenMetaData = gophorametadata[tokenIdCounterNumber % gophorametadata.length];
+    
     const notificationId = notification.loading("Uploading to IPFS");
     try {
       const uploadedItem = await ipfsClient.add(JSON.stringify(currentTokenMetaData));
