@@ -22,12 +22,14 @@ export const NFTCard = ({ nft }: { nft: Collectible }) => {
         </figcaption>
       </figure> */}
       <div className="card-body space-y-3">
-        <p className="text-xl p-0 m-0 font-semibold text-center">{nft.name}</p>
+        <p className="text-xl p-0 m-0 font-semibold text-center">GOPHORA {nft.name}</p>
         <div className="flex items-center justify-center">
           <div className="flex flex-wrap space-x-2 mt-1">
             {nft.attributes?.map((attr, index) => (
               <span key={index} className="badge badge-primary py-3">
-                {attr.value}
+               <ul>
+               <li>{attr.value} {attr.trait_type}</li>
+               </ul>
               </span>
             ))}
           </div>
@@ -36,16 +38,16 @@ export const NFTCard = ({ nft }: { nft: Collectible }) => {
           <p className="my-0 text-lg">{nft.description}</p>
         </div>
         <div className="flex space-x-3 mt-1 items-center">
-          <span className="text-lg font-semibold">NRO CERTIFICADO :  {nft.id} </span>
+          <span className="text-lg font-semibold">NRO TICKET :  {nft.id} </span>
           {/* <Address address={nft.owner} /> */}
            
         </div>
-        <div className="flex flex-col my-2 space-y-1">
+        {/* <div className="flex flex-col my-2 space-y-1">
           <a href={nft.external_url}>
             <span className="text-lg font-semibold mb-1"> </span>
-            Documento de verificación
+            Documento de verificación                            
           </a>
-        </div>
+        </div> */}
         <div className="flex flex-col my-2 space-y-1">
           <span className="text-lg font-semibold mb-1">Transferir a: </span>
 

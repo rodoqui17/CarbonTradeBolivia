@@ -55,7 +55,7 @@ const MyNFTs: NextPage = () => {
       <div className="flex items-center flex-col pt-10">
         <div className="px-5">
           <h1 className="text-center mb-8">
-            <span className="block text-4xl font-bold">Mis Certificados</span>
+            <span className="block text-4xl font-bold">MIS TICKETS</span>
           </h1>
         </div>
       </div>
@@ -64,7 +64,7 @@ const MyNFTs: NextPage = () => {
           <RainbowKitCustomConnectButton />
         ) : (
           <button className="btn btn-secondary" onClick={handleMintItem}>
-            Crear Certificado
+            Generar Ticket
           </button>
         )}
       </div>
