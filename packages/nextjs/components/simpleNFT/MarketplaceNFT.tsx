@@ -17,7 +17,7 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
     <div className="card card-compact bg-base-100 shadow-lg w-[380px] shadow-secondary">
       <figure className="relative">
         {/* eslint-disable-next-line  */}
-        <img src={nft.image} alt="NFT Image" className="h-60 min-w-full" />
+        <img src={nft.image} alt="NFT Image" className="h-60" />
         <figcaption className="glass absolute bottom-4 left-4 p-4 w-25 rounded-xl">
           <span className="text-black "># {nft.id}</span>
         </figcaption>
