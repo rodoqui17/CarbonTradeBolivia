@@ -54,7 +54,7 @@ export const Header = () => {
       <li>
         <NavLink href="/myNFTs">
           <PhotoIcon className="h-4 w-4" />
-          Mis Certificados
+          Tickets
         </NavLink>
       </li>
       <li>
