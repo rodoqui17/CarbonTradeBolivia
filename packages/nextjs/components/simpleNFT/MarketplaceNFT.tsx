@@ -44,13 +44,13 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
         <div className="flex flex-col my-2 space-y-1">
           <a href={nft.external_url}>
             <span className="text-lg font-semibold mb-1"> </span>
-            Documento de verificación
+            Sitio de lanzamiento
           </a>
         </div>
 
         <div className="card-actions justify-end">
           <button className="btn btn-secondary btn-md px-8 tracking-wide" onClick={() => transferNFT()}>
-            Compensar
+            Canjear
           </button>
         </div>
 
