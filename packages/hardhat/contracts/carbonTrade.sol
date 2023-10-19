@@ -79,7 +79,7 @@ contract carbonTrade is ERC721URIStorage, Ownable{
         string memory studies,
         string memory receipt,
         string memory tokenURI
-    ) external {
+    ) external onlyOwner {
         
     
 

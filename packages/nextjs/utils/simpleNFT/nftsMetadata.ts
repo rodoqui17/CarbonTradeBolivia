@@ -119,6 +119,33 @@ const nftsMetadata = [
       },
     ],
   },
+  {
+    name: "CriptoPurrs # 0",
+    symbol: "CriptoPurrs",
+    description:
+      "This is your moment! Hold these enchanting digital assets as we unleash their power, join with us in the space exploration will.",
+    seller_fee_basis_points: 500,
+    image: "https://nftstorage.link/ipfs/bafybeicucqdfulimg45enihv43ipconuv5wcn7zgm4pgbxwelq7d5uxvbu/0.png",
+    external_url: "",
+    collection: { name: "GOPHORA NFT COLLECTIBLES ", family: "LaunchMyNFT" },
+    attributes: [
+      { trait_type: "Background", value: "White" },
+      { trait_type: "Clothes", value: "Blazer C1" },
+      { trait_type: "Head", value: "Bluecathelmet" },
+      { trait_type: "Eyes", value: "Earthshift" },
+      { trait_type: "Rarity Rank", value: 1945, display_type: "number", max_value: 2000 },
+    ],
+    properties: {
+      files: [
+        {
+          uri: "0.png",
+          type: "image/png",
+        },
+      ],
+      category: "image",
+      creators: [{ address: "AXqzj3dxi8Wv9SYMhrMjkxJNSrQ7EwsjGWYVxzHJVWsr", share: 100 }],
+    },
+  },
 ];
 
 export default nftsMetadata;
