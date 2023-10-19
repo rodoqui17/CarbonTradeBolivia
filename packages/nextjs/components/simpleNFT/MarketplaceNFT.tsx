@@ -17,13 +17,13 @@ export const MarketplaceNFT = ({ nft }: { nft: Collectible }) => {
     <div className="card card-compact bg-base-100 shadow-lg w-[380px] shadow-secondary">
       <figure className="relative">
         {/* eslint-disable-next-line  */}
-        <img src={nft.image} alt="NFT Image" className="h-60 min-w-full" />
+        <img src={nft.image} alt="NFT Image" className="h-60" />
         <figcaption className="glass absolute bottom-4 left-4 p-4 w-25 rounded-xl">
           <span className="text-black "># {nft.id}</span>
         </figcaption>
       </figure>
       <div className="card-body space-y-3">
-        <p className="text-xl p-0 m-0 font-semibold text-center">{nft.name}</p>
+        <p className="text-xl p-0 m-0 font-semibold text-center">{nft.name} # {nft.id}</p>
         <div className="flex items-center justify-center">
           <div className="flex flex-wrap space-x-2 mt-1">
             {nft.attributes?.map((attr, index) => (
