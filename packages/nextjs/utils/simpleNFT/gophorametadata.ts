@@ -3,7 +3,7 @@ const gophorametadata = [
   {
     description: "Gophora lanza tu nombre al espacio",
     external_url: "https://gophoraspace.vercel.app/", // <-- this can link to a page for the specific file too
-    image: img,
+    image: "https://nftstorage.link/ipfs/bafybeicz27pkzl7bkvf2ko7rplh4wt2tjozytm3pz34vejakq74zwfrptu/ticket.jpeg",
     name: "TICKET",
     attributes: [
       {
