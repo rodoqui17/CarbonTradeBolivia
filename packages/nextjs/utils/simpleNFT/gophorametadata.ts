@@ -1,8 +1,9 @@
+import img from "./img/NFT MARTE.png"
 const gophorametadata = [
   {
     description: "Gophora lanza tu nombre al espacio",
     external_url: "https://gophoraspace.vercel.app/", // <-- this can link to a page for the specific file too
-    image: "https://nftstorage.link/ipfs/bafybeicz27pkzl7bkvf2ko7rplh4wt2tjozytm3pz34vejakq74zwfrptu/ticket.jpeg",
+    image: img,
     name: "TICKET",
     attributes: [
       {
